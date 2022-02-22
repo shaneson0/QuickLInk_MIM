@@ -3,11 +3,15 @@
 
 
 ```
-magicInternetMoney deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
-minimalTimeLock deployed to: 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
-spell deployed to: 0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0
-spellPower deployed to: 0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9
-timePower deployed to: 0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+ethKovanOracle deployed to: 0xFEF2EeDA0010909D7b2F7049faAe9CABca6FFc53
+magicInternetMoney deployed to: 0xbe5fEB22A344bB0Da390f612Cb019c2C20612544
+minimalTimeLock deployed to: 0x89815636eBc21314F7b151C938BF042Ae4bCa7f4
+spell deployed to: 0xca805e210f3b0ebd3F6cDd40E826F1b637de9d78
+spellPower deployed to: 0x3F7c8b24EB049DE6769db09f89499f81B1D4d784
+timePower deployed to: 0xE2C2738C5dd4cC4a39Da8012aFa675AB1596B620
+bentoBox1 deployed to: 0xa33448697a8CB9483FeEE3e5aCfa5882452AD278
+sSpell deployed to: 0xEAE3Aa4C61143429da7874190248c88eA6c1f8B0
+cauldronMediumRiskV1 deployed to:  0x7C071318C4834cb1AB086C428Aa0dbcA4Bdf7fd8
 ```
 
 

@@ -4,6 +4,8 @@ require("@nomiclabs/hardhat-etherscan");
 require("@nomiclabs/hardhat-waffle");
 require("hardhat-gas-reporter");
 require("solidity-coverage");
+require('hardhat-abi-exporter');
+
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -11,7 +13,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   const accounts = await hre.ethers.getSigners();
 
   for (const account of accounts) {
-    console.log(account.address);
+    console.log(account.address);   
   }
 });
 
@@ -318,12 +320,9 @@ module.exports = {
     },
   },
   networks: {
-    ropsten: {
-      url: `https://ropsten.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      chainId: 3,
-      live: true,
-      saveDeployments: true,
-      tags: ["staging"],
+    kovan: {
+      url: "https://kovan.infura.io/v3/938ec750ced64edda8fc17c9e135d0f6",
+      accounts: [`91b9a7ab998e6651385f77bdc719f2951b0e55db9fe2691c5cee48812506ac62`]
     }
   },
   gasReporter: {
@@ -333,4 +332,31 @@ module.exports = {
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
   },
+  abiExporter: {
+    path: './out/abi',
+    runOnCompile: true,
+    clear: true,
+    flat: true,
+    only: [':ERC20$', 'MagicInternetMoney'],
+    spacing: 2,
+    pretty: true,
+  }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
