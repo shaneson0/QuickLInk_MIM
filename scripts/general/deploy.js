@@ -5,21 +5,10 @@
 // Runtime Environment's members available in the global scope.
 const hre = require("hardhat");
 require('hardhat-abi-exporter');
+require("@nomiclabs/hardhat-web3");
+
 
 async function main() {
-  // Hardhat always runs the compile task when running scripts with its command
-  // line interface.
-  //
-  // If this script is run directly using `node` you may want to call compile
-  // manually to make sure everything is compiled
-  // await hre.run('compile');
-
-
-  const EthKovanOracle = await hre.ethers.getContractFactory("ethKovanOracle");
-  const ethKovanOracle = await EthKovanOracle.deploy(); 
-  await ethKovanOracle.deployed(); 
-
-  console.log("ethKovanOracle deployed to:", ethKovanOracle.address);
 
 
   // We get the contract to deploy
@@ -36,7 +25,7 @@ async function main() {
   const spell = await Spell.deploy();
   const spellPower = await SpellPower.deploy();
   const timePower = await TimePower.deploy();
-  const bentoBoxV1 = await BentoBoxV1.deploy(wethToken_= ethKovanOracle.address);
+  const bentoBoxV1 = await BentoBoxV1.deploy(wethToken_= "0x0000000000000000000000000000000000000000");
 
   await magicInternetMoney.deployed();
   await minimalTimeLock.deployed();
@@ -60,11 +49,6 @@ async function main() {
   await spell.deployed();
   console.log("sSpell deployed to:", sSpell.address);
 
-  const Cauldron = await hre.ethers.getContractFactory("Cauldron");
-  const cauldron = await Cauldron.deploy(IBentoBoxV1=bentoBoxV1.address, magicInternetMoney_=magicInternetMoney.address);
-  await cauldron.deployed();
-  console.log("cauldronMediumRiskV1 deployed to: ", cauldron.address);
-
 }
 
 // We recommend this pattern to be able to use async/await everywhere
@@ -76,7 +60,13 @@ main().catch((error) => {
 
 
 
-
+// magicInternetMoney deployed to: 0x8faA507c79AF20Ccfe17B79E1670C1D29D03D4fd
+// minimalTimeLock deployed to: 0x3339C523f25c0114257ebE1B23080C0503A19d18
+// spell deployed to: 0x624627567ecc4c3650f2e3895A990aeDa82990f1
+// spellPower deployed to: 0x393f481DD92aAb018817C4E625F6B55131c14B3e
+// timePower deployed to: 0xa5618995E6dbC4c48D95771Fbee65460e41caE7d
+// bentoBox1 deployed to: 0xEDD9EE1F70969D8c99Ab0834f226e2bF8f0BdcB3
+// sSpell deployed to: 0xCdce0d3E4aE368761DBa5e65c3a540d2ee1ce4C1
 
 
 

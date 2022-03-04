@@ -13,7 +13,7 @@ interface IERC20 {
     function balanceOf(address account) external view returns (uint256);
 }
 
-contract ethKovanOracle is IOracle {
+contract WethOracle is IOracle {
     IAggregator constant public ETHUSD = IAggregator(0x9326BFA02ADD2366b30bacB125260Af641031331);
 
     // Calculates the lastest exchange rate
@@ -21,14 +21,6 @@ contract ethKovanOracle is IOracle {
     function _get() internal view returns (uint256) {
 
         return 1e26 / uint256(ETHUSD.latestAnswer());
-    }
-
-    function getDataParameter(
-        address multiply,
-        address divide,
-        uint256 decimals
-    ) public pure returns (bytes memory) {
-        return abi.encode(multiply, divide, decimals);
     }
 
     // Get the latest exchange rate
@@ -51,7 +43,7 @@ contract ethKovanOracle is IOracle {
 
     /// @inheritdoc IOracle
     function name(bytes calldata) public pure override returns (string memory) {
-        return "Chainlink eth";
+        return "Chainlink ETH";
     }
 
     /// @inheritdoc IOracle
